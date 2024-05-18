@@ -22,7 +22,7 @@ export const MovieCard: React.FC<MovieCardProps> = (props) => {
   return (
     <Paper p={24}>
       <Group justify="space-between" wrap="nowrap">
-        <Link style={{ display: "contents" }} href={`/movies/${props.id}`}>
+        <Link style={{ display: "contents" }} href={`/${props.id}`}>
           <MediaImage
             priority={props.priority}
             style={{ width: "auto", height: 170 }}

@@ -2,7 +2,7 @@
 import { AppShell, Button, Flex, Stack, Title } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 interface SideBarProps {
@@ -10,13 +10,12 @@ interface SideBarProps {
 }
 
 const navLinks = [
-  { name: "Movies", href: "/movies" },
+  { name: "Movies", href: "/" },
   { name: "Rated movies", href: "/rating" },
 ];
 
 export const SideBar = ({ onCloseMenu }: SideBarProps) => {
   const pathname = usePathname();
-  const params = useParams<{ id: string }>();
 
   return (
     <AppShell.Navbar
@@ -42,9 +41,7 @@ export const SideBar = ({ onCloseMenu }: SideBarProps) => {
       </Flex>
       <Stack gap={16} pt={80}>
         {navLinks.map((link) => {
-          const isActiveLink =
-            pathname === `${link.href}/${params.id}` ||
-            pathname === `${link.href}`;
+          const isActiveLink = link.href === pathname.replace(/\d+/g, "");
 
           return (
             <Button

@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { Divider, Loader, Paper, Stack } from "@mantine/core";
-import { Breadcrumbs } from "../../components/Breadcrumbs";
-import { ProductionCompanyList } from "../../components/ProductionCompanyList";
-import { useMovieDetails } from "../../lib/swrHooks";
-import MovieCardBig from "../../components/MovieCardBig";
-import { MovieTrailer } from "../../components/MovieTrailer";
-import { MovieDescription } from "../../components/MovieDescription";
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { ProductionCompanyList } from "../components/ProductionCompanyList";
+import { useMovieDetails } from "../lib/swrHooks";
+import MovieCardBig from "../components/MovieCardBig";
+import { MovieTrailer } from "../components/MovieTrailer";
+import { MovieDescription } from "../components/MovieDescription";
 
 interface MoviePageProps {
   params: {

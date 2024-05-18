@@ -8,12 +8,12 @@ import {
   Stack,
   Title,
 } from "@mantine/core";
-import { MovieCard } from "../components/MovieCard";
-import Filters from "../components/Filters";
-import { useMovieFilters } from "../lib/swrHooks";
-import { useAppContext } from "../components/AppContext";
+import { MovieCard } from "./components/MovieCard";
+import Filters from "./components/Filters";
+import { useMovieFilters } from "./lib/swrHooks";
+import { useAppContext } from "./components/AppContext";
 import { useEffect } from "react";
-import { NoResults } from "../components/NoResults";
+import { NoResults } from "./components/NoResults";
 
 export default function HomePage() {
   const { activePage, setActivePage, filters } = useAppContext();

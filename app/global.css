@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mantine-NumberInput-input:hover,
+.mantine-Select-input:hover,
+.mantine-MultiSelect-input:hover {
+  border-color: var(--mantine-color-purple-4);
+}
+
+.mantine-Select-option[data-checked],
+.mantine-MultiSelect-option[data-checked] {
+  background-color: var(--mantine-color-purple-4) !important;
+}
+
+.mantine-Select-options .mantine-Select-option:hover,
+.mantine-MultiSelect-options .mantine-MultiSelect-option:hover {
+  background-color: var(--mantine-color-purple-0);
+}
+
+.mantine-MultiSelect-pillsList > *:not(:last-of-type)::after {
+  content: ",";
+}
+
+.mantine-MultiSelect-pill button {
+  display: none;
+}

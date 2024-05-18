@@ -1,14 +1,20 @@
 import "@mantine/core/styles.css";
+import "./global.css";
 import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "../theme";
+import { AppLayout } from "./components/AppLayout";
 
 export const metadata = {
-  title: "Mantine Next.js template",
-  description: "I am using Mantine with Next.js!",
+  title: "ArrowFlicks",
+  description: "Movies app",
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
@@ -19,8 +25,16 @@ export default function RootLayout({ children }: { children: any }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+      <body
+        style={{
+          width: "1440px",
+          margin: "0 auto",
+          position: "relative",
+        }}
+      >
+        <MantineProvider theme={theme}>
+          <AppLayout>{children}</AppLayout>
+        </MantineProvider>
       </body>
     </html>
   );

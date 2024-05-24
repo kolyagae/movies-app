@@ -72,9 +72,17 @@ export interface MovieDetails extends Omit<Movie, "genre_ids"> {
 
 export interface SearchParams {
   page: number;
-  sortBy?: string;
-  primary_release_year?: string;
+  sortBy: string;
+  primary_release_year: string | null;
   with_genres?: string[];
-  vote_average_gte?: string;
-  vote_average_lte?: string;
+  vote_average_gte: string | number;
+  vote_average_lte?: string | number;
+}
+
+export interface Filters {
+  sortBy: string;
+  with_genres: string[];
+  primary_release_year: string | null;
+  vote_average_gte: string;
+  vote_average_lte: string;
 }

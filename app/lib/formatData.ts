@@ -30,3 +30,13 @@ export const formatCurrency = (budget: number) => {
     minimumFractionDigits: 0,
   }).format(budget);
 };
+
+export const formatVoteCount = (count: number) => {
+  if (count >= 1000 && count < 1000000) {
+    return (count / 1000).toFixed(1) + "K";
+  } else if (count >= 1000000 && count < 1000000000) {
+    return (count / 1000000).toFixed(1) + "M";
+  }
+
+  return count;
+};

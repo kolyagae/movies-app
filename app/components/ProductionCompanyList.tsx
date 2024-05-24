@@ -17,7 +17,7 @@ export const ProductionCompanyList = ({
   }
 
   return (
-    <Stack gap={16}>
+    <Stack gap={12}>
       <Title order={4} fz={20} fw={600} c="var(--mantine-color-grey-6)">
         Production
       </Title>

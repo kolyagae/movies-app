@@ -1,21 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { AppShell, Burger } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { SideBar } from "./SideBar";
-import { AppContext, Filters } from "./AppContext";
-import { Movie } from "../types";
+import { AppContext } from "./AppContext";
+import { Filters, Movie } from "../types";
 import { defaultFilters } from "../constants";
+import { SideBar } from "./Sidebar/SideBar";
+import { Box, Container } from "@mantine/core";
+import { usePathname } from "next/navigation";
 
 interface AppLayoutProps {
   children: React.ReactNode;
 }
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
-  const [opened, { toggle }] = useDisclosure();
   const [activePage, setActivePage] = useState(1);
   const [filters, setFilters] = useState<Filters>(defaultFilters);
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [isNotFound, setIsNotFound] = useState(false);
+  const path = usePathname();
 
   useEffect(() => {
     const ratedMoviesDB = localStorage.getItem("ratedMovies");
@@ -23,6 +24,12 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
       ? JSON.parse(ratedMoviesDB)
       : [];
     setMovies(ratedMoviesArray);
+  }, []);
+
+  useEffect(() => {
+    if (path.slice(1).includes(`/`)) {
+      setIsNotFound(true);
+    }
   }, []);
 
   return (
@@ -34,27 +41,28 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         setActivePage,
         movies,
         setMovies,
+        isNotFound,
+        setIsNotFound,
       }}
     >
-      <AppShell
-        navbar={{
-          width: 280,
-          breakpoint: "sm",
-          collapsed: { mobile: !opened },
-        }}
-        padding="md"
-      >
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <SideBar onCloseMenu={toggle} />
-        <AppShell.Main
-          p={0}
-          pl={280}
-          maw={1472}
+      <Container display="flex" maw={1440} mih="100vh" p={0}>
+        <SideBar />
+        <Box
+          component="main"
+          w={"100%"}
+          flex={1}
+          display="flex"
+          px={{ xs: 10, sm: 20, md: 70, lg: 90, xl: 20 }}
+          style={{
+            justifyItems: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
           bg="var(--mantine-color-grey-1)"
         >
           {children}
-        </AppShell.Main>
-      </AppShell>
+        </Box>
+      </Container>
     </AppContext.Provider>
   );
 };

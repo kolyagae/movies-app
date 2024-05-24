@@ -14,11 +14,13 @@ export const MovieDescription = ({ movieId }: MovieDescriptionProps) => {
   }
 
   return (
-    <Stack gap={16}>
+    <Stack gap={10} mb={4} maw={725}>
       <Title order={4} fz={20} fw={600} c="var(--mantine-color-grey-6)">
         Description
       </Title>
-      <Text>{data.overview}</Text>
+      <Text style={{ lineHeight: "22px" }} fz={16} fw={400}>
+        {data.overview}
+      </Text>
     </Stack>
   );
 };

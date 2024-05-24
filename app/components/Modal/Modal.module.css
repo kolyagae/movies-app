@@ -1,0 +1,32 @@
+.modalContent section {
+  max-width: 380px;
+  height: 209px;
+}
+
+.modalHeader {
+  min-height: 54px;
+  padding: 16px 11px 16px 16px;
+  border-bottom: 1px solid var(--mantine-color-grey-2);
+}
+
+.modalBody {
+  padding: 16px 16px 14px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.saveButton:hover {
+  background-color: var(--mantine-color-purple-3);
+}
+
+.saveButton:active {
+  background-color: var(--mantine-color-purple-5);
+}
+
+@media (max-width: 399px) {
+  .modalContent section {
+    max-width: 320px;
+  }
+}

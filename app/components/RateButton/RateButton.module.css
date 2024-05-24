@@ -1,0 +1,12 @@
+.wrapper {
+  flex-wrap: nowrap;
+  gap: 4px;
+  align-self: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 1399px) {
+  .wrapper {
+    align-self: flex-end;
+  }
+}

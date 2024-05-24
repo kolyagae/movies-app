@@ -1,5 +1,6 @@
-import { Box, Loader } from "@mantine/core";
-import React, { useState } from "react";
+import styles from "./Player.module.css";
+import { AspectRatio } from "@mantine/core";
+import React from "react";
 
 type PlayerProps = {
   videoId: string;
@@ -7,16 +8,14 @@ type PlayerProps = {
 
 const Player: React.FC<PlayerProps> = ({ videoId }: PlayerProps) => {
   return (
-    <Box w={560} h={315} pos="relative">
+    <AspectRatio ratio={496 / 276} maw={496}>
       <iframe
-        width="100%"
-        height="100%"
-        style={{ borderRadius: 9, border: 0 }}
+        className={styles.iframe}
         src={`https://www.youtube.com/embed/${videoId}`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe>
-    </Box>
+    </AspectRatio>
   );
 };
 

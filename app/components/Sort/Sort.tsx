@@ -1,13 +1,13 @@
+import styles from "./Sort.module.css";
 import React, { useState } from "react";
-import { useAppContext } from "./AppContext";
-import { sortOptions } from "../constants";
-import { ComboboxItem, Select, useMantineTheme } from "@mantine/core";
+import { ComboboxItem, Select } from "@mantine/core";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { useAppContext } from "../AppContext";
+import { sortOptions } from "../../constants";
 
 export const Sort: React.FC = () => {
   const { filters, setFilters } = useAppContext();
   const [isOpen, setIsOpen] = useState(false);
-  const theme = useMantineTheme();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
@@ -19,6 +19,11 @@ export const Sort: React.FC = () => {
 
   return (
     <Select
+      classNames={{
+        root: styles.root,
+        input: styles.input,
+        option: styles.option,
+      }}
       label="Sort by"
       data={sortOptions}
       placeholder="Most popular"
@@ -28,7 +33,11 @@ export const Sort: React.FC = () => {
       onDropdownOpen={toggleMenu}
       onDropdownClose={toggleMenu}
       rightSection={
-        isOpen ? <SlArrowUp color={theme.colors.purple[4]} /> : <SlArrowDown />
+        isOpen ? (
+          <SlArrowUp color="var(--mantine-color-purple-4)" />
+        ) : (
+          <SlArrowDown />
+        )
       }
     />
   );

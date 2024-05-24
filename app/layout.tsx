@@ -1,4 +1,4 @@
-import "@mantine/core/styles.css";
+import "@mantine/core/styles.layer.css";
 import "./global.css";
 import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
@@ -25,13 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body
-        style={{
-          width: "1440px",
-          margin: "0 auto",
-          position: "relative",
-        }}
-      >
+      <body>
         <MantineProvider theme={theme}>
           <AppLayout>{children}</AppLayout>
         </MantineProvider>

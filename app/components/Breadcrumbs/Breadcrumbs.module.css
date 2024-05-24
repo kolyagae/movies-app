@@ -1,0 +1,6 @@
+.breadcrumbs {
+  font-size: 14px;
+  width: 100%;
+  color: var(--mantine-color-purple-4);
+  letter-spacing: 0.5px;
+}

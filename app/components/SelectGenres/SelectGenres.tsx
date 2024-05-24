@@ -1,15 +1,14 @@
+import styles from "./SelectGenres.module.css";
 import React, { useState } from "react";
-import { useAppContext } from "./AppContext";
-import { useGenres } from "../lib/swrHooks";
-import { MultiSelect, useMantineTheme } from "@mantine/core";
+import { useAppContext } from "../AppContext";
+import { MultiSelect } from "@mantine/core";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { useGenres } from "../../lib/swrHooks";
 
 export const SelectGenres: React.FC = () => {
   const { data } = useGenres();
   const { filters, setActivePage, setFilters } = useAppContext();
   const [isOpen, setIsOpen] = useState(false);
-  const theme = useMantineTheme();
-
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   const genreOptions = data?.genres.map((genre) => ({
@@ -24,6 +23,13 @@ export const SelectGenres: React.FC = () => {
 
   return (
     <MultiSelect
+      classNames={{
+        root: styles.root,
+        input: styles.input,
+        option: styles.option,
+        pillsList: styles.pillsList,
+        pill: styles.pill,
+      }}
       w={283.67}
       placeholder={filters.with_genres.length === 0 ? "Select genre" : ""}
       label="Genres"
@@ -33,7 +39,11 @@ export const SelectGenres: React.FC = () => {
       onDropdownClose={toggleMenu}
       data={genreOptions}
       rightSection={
-        isOpen ? <SlArrowUp color={theme.colors.purple[4]} /> : <SlArrowDown />
+        isOpen ? (
+          <SlArrowUp color="var(--mantine-color-purple-4)" />
+        ) : (
+          <SlArrowDown />
+        )
       }
     />
   );

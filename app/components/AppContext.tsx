@@ -1,13 +1,5 @@
 import { Dispatch, SetStateAction, createContext, useContext } from "react";
-import { Movie } from "../types";
-
-export interface Filters {
-  sortBy: string;
-  with_genres: string[];
-  primary_release_year: string;
-  vote_average_gte: string;
-  vote_average_lte: string;
-}
+import { Filters, Movie } from "../types";
 
 interface AppContext {
   activePage: number;
@@ -16,6 +8,8 @@ interface AppContext {
   setFilters: Dispatch<SetStateAction<Filters>>;
   movies: Movie[];
   setMovies: Dispatch<React.SetStateAction<Movie[]>>;
+  isNotFound: boolean;
+  setIsNotFound: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AppContext = createContext<AppContext | null>(null);

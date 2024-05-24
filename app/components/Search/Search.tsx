@@ -1,9 +1,9 @@
-"use client";
+import styles from "./Search.module.css";
 import { Button, Input } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import { LuSearch } from "react-icons/lu";
-import { Movie } from "../types";
-import { useAppContext } from "./AppContext";
+import { Movie } from "../../types";
+import { useAppContext } from "../AppContext";
 
 interface SearchProps {
   onSearchResultsChange: (results: Movie[]) => void;
@@ -34,8 +34,9 @@ export const Search: React.FC<SearchProps> = ({ onSearchResultsChange }) => {
 
   return (
     <Input
-      w={490}
-      size="md"
+      classNames={{ input: styles.input }}
+      w={{ base: "100%", md: "50%" }}
+      size="lg"
       radius="md"
       placeholder="Search movie title"
       rightSectionWidth={110}
@@ -45,7 +46,13 @@ export const Search: React.FC<SearchProps> = ({ onSearchResultsChange }) => {
       onChange={handleChange}
       leftSection={<LuSearch size={16} color="var(--mantine-color-gray-5)" />}
       rightSection={
-        <Button w={88} h={32} aria-label="Search input" onClick={handleSearch}>
+        <Button
+          className={styles.button}
+          w={88}
+          h={32}
+          aria-label="Search input"
+          onClick={handleSearch}
+        >
           Search
         </Button>
       }

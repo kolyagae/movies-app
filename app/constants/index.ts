@@ -1,7 +1,7 @@
 export const defaultFilters = {
   sortBy: "popularity.desc",
   with_genres: [],
-  primary_release_year: "",
+  primary_release_year: null,
   vote_average_gte: "",
   vote_average_lte: "",
 };
@@ -31,3 +31,8 @@ export const yearsVariants = new Array(
 )
   .fill(currentYear)
   .map((year, index) => year - index);
+
+export const navLinks = [
+  { name: "Movies", href: "/" },
+  { name: "Rated movies", href: "/rating" },
+];

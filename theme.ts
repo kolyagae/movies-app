@@ -81,7 +81,6 @@ export const theme = createTheme({
         max: 10,
       },
       styles: {
-        controls: { width: 30, paddingTop: 8, paddingBottom: 8 },
         control: {
           height: 32,
           border: 0,
@@ -125,9 +124,9 @@ export const theme = createTheme({
   },
   breakpoints: {
     xs: "320px",
-    sm: "600px",
-    md: "900px",
-    lg: "1200px",
+    sm: "400px",
+    md: "840px",
+    lg: "1140px",
     xl: "1440px",
   },
   colors: {

@@ -1,7 +1,8 @@
+import styles from "./Breadcrumbs.module.css";
 import { Breadcrumbs as MantineBreadcrumbs } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
-import { useMovieDetails } from "../lib/swrHooks";
+import { useMovieDetails } from "../../lib/swrHooks";
 
 interface BreadcrumbsProps {
   movieId: string;
@@ -15,7 +16,7 @@ export const Breadcrumbs = ({ movieId }: BreadcrumbsProps) => {
   ];
 
   return (
-    <MantineBreadcrumbs fz={14} w={800} c="var(--mantine-color-purple-4)">
+    <MantineBreadcrumbs className={styles.breadcrumbs}>
       {links.map((link, index) => (
         <Link href={link.href} key={index}>
           {link.title}

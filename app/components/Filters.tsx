@@ -1,21 +1,21 @@
 import { Flex } from "@mantine/core";
 import React from "react";
-import { SelectGenres } from "./SelectGenres";
-import { SelectReleaseYear } from "./SelectReleaseYear";
-import { SelectRatings } from "./SelectRatings";
-import { Sort } from "./Sort";
+import { SelectRatings } from "./SelectRatings/SelectRatings";
 import { ResetFiltersBtn } from "./ResetFiltersBtn";
+import { SelectGenres } from "./SelectGenres/SelectGenres";
+import { SelectReleaseYear } from "./SelectReleaseYear/SelectReleaseYear";
+import { Sort } from "./Sort/Sort";
 
 const Filters = () => {
   return (
     <>
-      <Flex align="end" gap={16} pt={40}>
+      <Flex align="end" wrap="wrap" gap={16} pt={16}>
         <SelectGenres />
         <SelectReleaseYear />
         <SelectRatings />
         <ResetFiltersBtn />
       </Flex>
-      <Flex justify="end" pt={24}>
+      <Flex justify="end">
         <Sort />
       </Flex>
     </>

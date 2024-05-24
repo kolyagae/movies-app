@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { Divider, Loader, Paper, Stack } from "@mantine/core";
-import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Breadcrumbs } from "../components/Breadcrumbs/Breadcrumbs";
 import { ProductionCompanyList } from "../components/ProductionCompanyList";
 import { useMovieDetails } from "../lib/swrHooks";
-import MovieCardBig from "../components/MovieCardBig";
+import { MovieCardBig } from "../components/MovieCardBig/MovieCardBig";
 import { MovieTrailer } from "../components/MovieTrailer";
 import { MovieDescription } from "../components/MovieDescription";
 
@@ -29,7 +29,7 @@ export default function MoviePage({ params: { id } }: MoviePageProps) {
     <Stack justify="center" align="center" gap={20} pt={45}>
       <Breadcrumbs movieId={id} />
       <MovieCardBig movieId={id} />
-      <Paper w={800} p={24}>
+      <Paper w="100%" p={24}>
         <Stack>
           <MovieTrailer movieId={id} />
           <MovieDescription movieId={id} />

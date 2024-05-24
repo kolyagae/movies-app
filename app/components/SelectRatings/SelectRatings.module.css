@@ -1,0 +1,19 @@
+.input:not([data-error]):hover {
+  border-color: var(--mantine-color-purple-4);
+}
+
+.root:hover svg {
+  color: var(--mantine-color-purple-3);
+}
+
+.controls button:hover {
+  background-color: transparent;
+}
+
+.controls button[data-direction="up"] {
+  padding-top: 8px;
+}
+
+.controls button[data-direction="down"] {
+  padding-bottom: 8px;
+}
